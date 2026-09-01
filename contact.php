@@ -196,31 +196,5 @@ include 'header.php';
     </div>
 </div>
 
-<script>
-    const chipBtns = document.querySelectorAll('.chip-btn');
-    const topicInput = document.getElementById('selectedTopic');
-
-    chipBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            chipBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            if (topicInput) topicInput.value = btn.getAttribute('data-topic');
-        });
-    });
-
-    function selectUrgency(element) {
-        document.querySelectorAll('.urgency-card').forEach(card => card.classList.remove('selected'));
-        element.classList.add('selected');
-        const radio = element.querySelector('input[type="radio"]');
-        if (radio) radio.checked = true;
-    }
-
-    <?php if ($ticketSuccess): ?>
-    setTimeout(() => {
-        const toast = document.getElementById('toastMsg');
-        if (toast) toast.style.display = 'none';
-    }, 5000);
-    <?php endif; ?>
-</script>
-
+<script src="assets/js/main.js"></script>
 <?php include 'footer.php'; ?>

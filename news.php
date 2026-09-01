@@ -109,40 +109,5 @@ include 'header.php';
     </div>
 </section>
 
-<!-- JavaScript Filter Tabs & Search -->
-<script>
-    function filterNews(category) {
-        const buttons = document.querySelectorAll('.cat-btn');
-        buttons.forEach(btn => btn.classList.remove('active'));
-        if (event && event.target) {
-            event.target.classList.add('active');
-        }
-
-        const cards = document.querySelectorAll('.news-card');
-        cards.forEach(card => {
-            if (category === 'all' || card.getAttribute('data-category') === category) {
-                card.style.display = 'flex';
-            } else {
-                card.style.display = 'none';
-            }
-        });
-    }
-
-    function searchNews() {
-        const input = document.getElementById('newsSearch').value.toLowerCase();
-        const cards = document.querySelectorAll('.news-card');
-
-        cards.forEach(card => {
-            const title = card.querySelector('.news-heading').innerText.toLowerCase();
-            const detail = card.querySelector('.news-detail').innerText.toLowerCase();
-
-            if (title.includes(input) || detail.includes(input)) {
-                card.style.display = 'flex';
-            } else {
-                card.style.display = 'none';
-            }
-        });
-    }
-</script>
-
+<script src="assets/js/main.js"></script>
 <?php include 'footer.php'; ?>

@@ -234,51 +234,6 @@ include 'header.php';
     </div>
 </div>
 
-<!-- JavaScript Gallery & Lightbox -->
-<script>
-    function filterGallery(category) {
-        const buttons = document.querySelectorAll('.filter-btn');
-        buttons.forEach(btn => btn.classList.remove('active'));
-        if (event && event.target) {
-            event.target.classList.add('active');
-        }
-
-        const items = document.querySelectorAll('.photo-item');
-        items.forEach(item => {
-            if (category === 'all' || item.getAttribute('data-category') === category) {
-                item.style.display = 'block';
-            } else {
-                item.style.display = 'none';
-            }
-        });
-    }
-
-    function openLightbox(title, desc, bgGradient, iconClass) {
-        const modal = document.getElementById('lightbox-modal');
-        const modalTitle = document.getElementById('modal-title');
-        const modalDesc = document.getElementById('modal-desc');
-        const modalBanner = document.getElementById('modal-banner');
-        const modalIcon = document.getElementById('modal-icon');
-
-        modalTitle.innerText = title;
-        modalDesc.innerText = desc;
-        modalBanner.style.background = bgGradient;
-        modalIcon.className = `fa-solid ${iconClass} fa-4x`;
-
-        modal.classList.add('active');
-    }
-
-    function closeLightbox() {
-        document.getElementById('lightbox-modal').classList.remove('active');
-    }
-
-    window.addEventListener('click', (e) => {
-        const modal = document.getElementById('lightbox-modal');
-        if (e.target === modal) {
-            closeLightbox();
-        }
-    });
-</script>
-
+<script src="assets/js/main.js"></script>
 <?php include 'footer.php'; ?>
 ```[cite: 12]

@@ -66,43 +66,6 @@
         <i class="fa-solid fa-arrow-up"></i>
     </button>
 
-    <script>
-        // Mobile Toggle Menu
-        const toggleBtn = document.getElementById('mobile-toggle-btn');
-        const navList = document.getElementById('nav-list');
-        if (toggleBtn && navList) {
-            toggleBtn.addEventListener('click', () => { navList.classList.toggle('active'); });
-        }
-
-        // Back to Top Logic
-        const backToTopBtn = document.getElementById('backToTopBtn');
-        const progressCircle = document.getElementById('scrollProgress');
-        const circumference = 2 * Math.PI * 20;
-
-        window.addEventListener('scroll', () => {
-            const scrollTop = window.scrollY;
-            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-            
-            if (scrollTop > 300) {
-                backToTopBtn.style.opacity = '1';
-                backToTopBtn.style.visibility = 'visible';
-                backToTopBtn.style.transform = 'translateY(0) scale(1)';
-            } else {
-                backToTopBtn.style.opacity = '0';
-                backToTopBtn.style.visibility = 'hidden';
-                backToTopBtn.style.transform = 'translateY(20px) scale(0.9)';
-            }
-
-            if (docHeight > 0 && progressCircle) {
-                const scrollPercent = scrollTop / docHeight;
-                const offset = circumference - (scrollPercent * circumference);
-                progressCircle.style.strokeDashoffset = offset;
-            }
-        });
-
-        if (backToTopBtn) {
-            backToTopBtn.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
-        }
-    </script>
+<script src="assets/js/main.js"></script>
 </body>
 </html>

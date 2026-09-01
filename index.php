@@ -201,23 +201,5 @@ include 'header.php';
     </div>
 </section>
 
-<!-- JavaScript Smooth Scrolling -->
-<script>
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            const targetId = this.getAttribute('href');
-            if (targetId && targetId !== '#') {
-                const targetEl = document.querySelector(targetId);
-                if (targetEl) {
-                    e.preventDefault();
-                    targetEl.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            }
-        });
-    });
-</script>
-
+<script src="assets/js/main.js"></script>
 <?php include 'footer.php'; ?>

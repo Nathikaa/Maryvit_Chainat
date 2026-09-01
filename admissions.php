@@ -267,18 +267,5 @@ include 'header.php'; // 3. โหลด Header และ HTML หลังจ�
     </div>
 </div>
 
-<script>
-    function toggleFaq(btn) {
-        const item = btn.parentElement;
-        item.classList.toggle('open');
-    }
-
-    <?php if ($applySuccess): ?>
-    setTimeout(() => {
-        const toast = document.getElementById('toastMsg');
-        if (toast) toast.style.display = 'none';
-    }, 4500);
-    <?php endif; ?>
-</script>
-
+<script src="assets/js/main.js"></script>
 <?php include 'footer.php'; ?>

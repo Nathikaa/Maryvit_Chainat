@@ -204,19 +204,6 @@ include 'header.php';
     </div>
 </section>
 
-<!-- JavaScript Tab Switching -->
-<script>
-    function openTab(evt, tabId) {
-        const tabPanes = document.querySelectorAll('.tab-pane');
-        tabPanes.forEach(pane => pane.classList.remove('active'));
-
-        const tabButtons = document.querySelectorAll('.tab-btn');
-        tabButtons.forEach(btn => btn.classList.remove('active'));
-
-        document.getElementById(tabId).classList.add('active');
-        evt.currentTarget.classList.add('active');
-    }
-</script>
-
+<script src="assets/js/main.js"></script>
 <?php include 'footer.php'; ?>
 ```[cite: 12]
