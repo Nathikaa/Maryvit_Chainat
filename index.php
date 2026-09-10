@@ -35,46 +35,16 @@ $cat_icons = [
 include 'header.php'; 
 ?>
 
-
-
-<!-- 3. Hero Section -->
+<!-- 3. Hero Section (พร้อมภาพพื้นหลังกิจกรรมและ AI) -->
 <section class="hero" id="home">
     <div class="container">
         <div class="hero-left">
-            <div class="hero-tag"><i class="fa-solid fa-award"></i> มุ่งมั่นสู่ความเป็นเลิศ ควบคู่คุณธรรม</div>
+            <div class="hero-tag"><i class="fa-solid fa-robot"></i> ก้าวล้ำทุกการเรียนรู้ด้วยภาษาและ AI</div>
             <h2 class="hero-title">ยินดีต้อนรับสู่ <br><span>โรงเรียนมารีวิทย์ชัยนาท</span></h2>
-            <p class="hero-subtitle">พัฒนาผู้เรียนสู่ศักยภาพระดับสากล เสริมทักษะภาษาอังกฤษและเทคโนโลยี ปลูกฝังระเบียบวินัยและจริยธรรม ภายใต้มาตรฐานเครือโรงเรียนมารีวิทย์</p>
+            <p class="hero-subtitle">เปิดสอนระดับเตรียมอนุบาล - ประถมศึกษาปีที่ 6 มุ่งพัฒนาผู้เรียนสู่ศักยภาพระดับสากล เสริมทักษะภาษาและเทคโนโลยี AI ควบคู่คุณธรรมและระเบียบวินัย</p>
             <div class="hero-actions">
                 <a href="admissions.php" class="btn-gold"><i class="fa-solid fa-file-signature"></i> สมัครเรียน ปีการศึกษา 2569</a>
-                <a href="about.php" class="btn-outline-white"><i class="fa-solid fa-circle-play"></i> วิดีโอแนะนำโรงเรียน</a>
-            </div>
-        </div>
-
-        <div class="hero-announcement-card">
-            <div class="ann-head">
-                <i class="fa-solid fa-bullhorn"></i>
-                <span>ข่าวประกาศด่วน</span>
-            </div>
-            <div class="ann-list-item">
-                <span class="ann-badge">รับสมัคร</span>
-                <div>
-                    <strong>เปิดรับสมัครนักเรียนใหม่ ปีการศึกษา 2569</strong>
-                    <p style="font-size: 0.8rem; color: #6b7280;">ระดับปฐมวัย - มัธยมศึกษาตอนปลาย</p>
-                </div>
-            </div>
-            <div class="ann-list-item">
-                <span class="ann-badge">กำหนดการ</span>
-                <div>
-                    <strong>ปฐมนิเทศผู้ปกครองและนักเรียนใหม่</strong>
-                    <p style="font-size: 0.8rem; color: #6b7280;">ณ หอประชุมใหญ่โรงเรียนมารีวิทย์ ชัยนาท</p>
-                </div>
-            </div>
-            <div class="ann-list-item">
-                <span class="ann-badge">ผลงาน</span>
-                <div>
-                    <strong>ยินดีกับนักเรียนที่คว้ารางวัลโอลิมปิกวิชาการ</strong>
-                    <p style="font-size: 0.8rem; color: #6b7280;">การแข่งขันคณิตศาสตร์และวิทยาศาสตร์ระดับภาค</p>
-                </div>
+                <a href="tel:0806436135" class="btn-outline-white"><i class="fa-solid fa-phone"></i> โทร. 080-6436135</a>
             </div>
         </div>
     </div>
@@ -84,25 +54,25 @@ include 'header.php';
 <div class="quick-section">
     <div class="container">
         <div class="quick-grid">
-            <a href="#" class="quick-card">
-                <div class="quick-icon-circle"><i class="fa-solid fa-calendar-days"></i></div>
-                <h3>ปฏิทินการศึกษา</h3>
-                <p>กำหนดการและวันสำคัญ</p>
+            <a href="admissions.php" class="quick-card">
+                <div class="quick-icon-circle"><i class="fa-solid fa-file-pen"></i></div>
+                <h3>สมัครเรียนออนไลน์</h3>
+                <p>ปีการศึกษา 2569</p>
             </a>
-            <a href="#" class="quick-card">
+            <a href="curriculum.php" class="quick-card">
                 <div class="quick-icon-circle"><i class="fa-solid fa-laptop-code"></i></div>
-                <h3>Schoology Online</h3>
-                <p>ระบบการเรียนการสอน</p>
+                <h3>หลักสูตร & AI App</h3>
+                <p>การเรียนรู้ดิจิทัลสากล</p>
             </a>
-            <a href="#" class="quick-card">
-                <div class="quick-icon-circle"><i class="fa-solid fa-clipboard-check"></i></div>
-                <h3>ตรวจผลการเรียน</h3>
-                <p>ระบบรายงานผลสอบ GPA</p>
+            <a href="about.php" class="quick-card">
+                <div class="quick-icon-circle"><i class="fa-solid fa-school"></i></div>
+                <h3>รู้จักมารีวิทย์</h3>
+                <p>ประวัติและอัตลักษณ์</p>
             </a>
-            <a href="#" class="quick-card">
-                <div class="quick-icon-circle"><i class="fa-solid fa-bus"></i></div>
-                <h3>บริการและสวัสดิการ</h3>
-                <p>รถรับส่ง, ค่าเทอม, เครื่องแบบ</p>
+            <a href="contact.php" class="quick-card">
+                <div class="quick-icon-circle"><i class="fa-solid fa-headset"></i></div>
+                <h3>ติดต่อสอบถาม</h3>
+                <p>แผนกธุรการและฝ่ายงาน</p>
             </a>
         </div>
     </div>
@@ -129,10 +99,17 @@ include 'header.php';
                         $iconClass = $cat_icons[$catKey] ?? 'fa-school';
                     ?>
                     <div class="news-card">
-                        <div class="news-banner" style="background: <?php echo $bgGrad; ?>;">
-                            <i class="fa-solid <?php echo $iconClass; ?> fa-3x"></i>
-                            <span class="news-date"><i class="fa-regular fa-clock"></i> <?php echo date('d M Y', strtotime($news['created_at'])); ?></span>
-                        </div>
+                        <?php if (!empty($news['image']) && file_exists('uploads/news/' . $news['image'])): ?>
+                            <div class="news-banner" style="background-image: url('uploads/news/<?php echo htmlspecialchars($news['image']); ?>'); background-size: cover; background-position: center;">
+                                <span class="news-date"><i class="fa-regular fa-clock"></i> <?php echo date('d M Y', strtotime($news['created_at'])); ?></span>
+                            </div>
+                        <?php else: ?>
+                            <div class="news-banner" style="background: <?php echo $bgGrad; ?>;">
+                                <i class="fa-solid <?php echo $iconClass; ?> fa-3x"></i>
+                                <span class="news-date"><i class="fa-regular fa-clock"></i> <?php echo date('d M Y', strtotime($news['created_at'])); ?></span>
+                            </div>
+                        <?php endif; ?>
+                        
                         <div class="news-content">
                             <span class="news-cat"><?php echo htmlspecialchars($catLabel); ?></span>
                             <h4 class="news-heading"><?php echo htmlspecialchars($news['title']); ?></h4>
@@ -145,7 +122,6 @@ include 'header.php';
                     </div>
                 <?php endforeach; ?>
             <?php else: ?>
-                <!-- ตัวอย่างการ์ดข่าว (กรณีเพิ่งติดตั้งและยังไม่ได้เพิ่มข่าวในหลังบ้าน) -->
                 <div class="news-card">
                     <div class="news-banner" style="background: linear-gradient(45deg, #0B6623, #15803d);">
                         <i class="fa-solid fa-school fa-3x"></i>
@@ -154,7 +130,7 @@ include 'header.php';
                     <div class="news-content">
                         <span class="news-cat">ประชาสัมพันธ์</span>
                         <h4 class="news-heading">เปิดรับสมัครนักเรียนใหม่ ปีการศึกษา 2569</h4>
-                        <p class="news-detail">เปิดรับสมัครระดับเตรียมอนุบาล ถึง มัธยมศึกษาตอนปลาย พร้อมสิทธิประโยชน์และทุนการศึกษา</p>
+                        <p class="news-detail">เปิดรับสมัครระดับเตรียมอนุบาล ถึง ประถมศึกษาปีที่ 6 ก้าวล้ำทุกการเรียนรู้ด้วยภาษาและเทคโนโลยี</p>
                         <div class="news-meta">
                             <span>โรงเรียนมารีวิทย์</span>
                             <a href="admissions.php" style="color: var(--primary-green);">สมัครเรียน <i class="fa-solid fa-chevron-right"></i></a>
@@ -188,9 +164,9 @@ include 'header.php';
                 <p>สร้างพื้นฐานวิชาการที่แข็งแกร่ง เน้นการคิดวิเคราะห์ และทักษะการใช้ภาษาเพื่อการสื่อสาร</p>
             </div>
             <div class="curriculum-card">
-                <div class="curriculum-icon"><i class="fa-solid fa-flask"></i></div>
-                <h4>แผนกมัธยมศึกษา</h4>
-                <p>เตรียมนักเรียนสู่มหาวิทยาลัยชั้นนำ เน้น IEP (Intensive English) และแผนการเรียนวิทย์-คณิต/ภาษา</p>
+                <div class="curriculum-icon"><i class="fa-solid fa-robot"></i></div>
+                <h4>เทคโนโลยี AI & Coding</h4>
+                <p>ปูพื้นฐานกระบวนการคิดเชิงคำนวณ เสริมสร้างทักษะดิจิทัลยุคใหม่ผ่านเครื่องมือและ AI App</p>
             </div>
             <div class="curriculum-card">
                 <div class="curriculum-icon"><i class="fa-solid fa-globe"></i></div>
@@ -201,5 +177,4 @@ include 'header.php';
     </div>
 </section>
 
-<script src="assets/js/main.js"></script>
 <?php include 'footer.php'; ?>
