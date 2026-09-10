@@ -26,7 +26,7 @@ ul { list-style: none; }
 .container { max-width: 1240px; margin: 0 auto; padding: 0 20px; }
 
 /* ==========================================================================
-   2. HEADER & NAVBAR (จาก header.php)
+   2. HEADER & NAVBAR (เมนูและโลโก้)
    ========================================================================== */
 .top-bar { background-color: var(--primary-dark); color: #d1fae5; font-size: 0.85rem; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
 .top-bar .container { max-width: 1380px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
@@ -38,10 +38,50 @@ ul { list-style: none; }
 
 .navbar { background: var(--white); box-shadow: var(--shadow-sm); position: sticky; top: 0; z-index: 1000; transition: var(--transition); }
 .navbar .container { max-width: 1380px; display: flex; justify-content: space-between; align-items: center; padding: 12px 20px; gap: 15px; }
-.logo-box { display: flex; align-items: center; gap: 12px; flex-shrink: 0; white-space: nowrap; }
-.logo-emblem { width: 48px; height: 48px; background: linear-gradient(135deg, var(--primary-green), #15803d); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--white); font-size: 1.5rem; font-weight: 700; box-shadow: 0 4px 10px rgba(11,102,35,0.3); border: 2px solid var(--accent-gold); }
+
+/* ส่วนแสดงผลโลโก้และชื่อโรงเรียน */
+.logo-box { 
+    display: flex; 
+    align-items: center; 
+    gap: 12px; 
+    flex-shrink: 0; 
+    white-space: nowrap; 
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.site-logo-img {
+    height: 48px;
+    width: auto;
+    object-fit: contain;
+    display: block;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.08));
+    transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+.logo-box:hover .site-logo-img {
+    transform: scale(1.05);
+    filter: drop-shadow(0 4px 8px rgba(11, 102, 35, 0.25));
+}
+
+.logo-emblem { 
+    width: 48px; 
+    height: 48px; 
+    background: linear-gradient(135deg, var(--primary-green), #15803d); 
+    border-radius: 50%; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    color: var(--white); 
+    font-size: 1.5rem; 
+    font-weight: 700; 
+    box-shadow: 0 4px 10px rgba(11,102,35,0.3); 
+    border: 2px solid var(--accent-gold); 
+}
+
 .logo-title h1 { font-size: 1.18rem; font-weight: 700; color: var(--primary-green); line-height: 1.2; }
 .logo-title span { font-size: 0.75rem; color: var(--text-sub); font-weight: 400; letter-spacing: 0.5px; }
+
 .nav-links { display: flex; align-items: center; gap: 16px; margin: 0; padding: 0; }
 .nav-item { font-size: 0.92rem; font-weight: 500; color: var(--text-main); padding: 8px 4px; position: relative; transition: var(--transition); white-space: nowrap; }
 .nav-item::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0%; height: 3px; background: var(--primary-green); border-radius: 2px; transition: var(--transition); }
@@ -354,7 +394,7 @@ ul { list-style: none; }
 .news-content { padding: 20px; display: flex; flex-direction: column; flex-grow: 1; }
 .news-cat { font-size: 0.8rem; color: var(--primary-green); font-weight: 600; text-transform: uppercase; margin-bottom: 6px; }
 .news-heading { font-size: 1.12rem; font-weight: 600; color: var(--text-main); line-height: 1.4; margin-bottom: 10px; }
-.news-detail { font-size: 0.88rem; color: var(--text-sub); margin-bottom: 18px; line-height: 1.6; flex-grow: 1; display: -webkit-box; display: -webkit-inline-box; display: -webkit-inline-box;  -webkit-box-orient: vertical; overflow: hidden; }
+.news-detail { font-size: 0.88rem; color: var(--text-sub); margin-bottom: 18px; line-height: 1.6; flex-grow: 1; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
 .news-meta { border-top: 1px solid #f3f4f6; padding-top: 12px; display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; color: var(--primary-green); font-weight: 500; }
 
 .section-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 35px; border-bottom: 2px solid #e5e7eb; padding-bottom: 15px; }
@@ -442,6 +482,11 @@ ul { list-style: none; }
 }
 
 @media (max-width: 768px) {
+    /* Responsive Logo & Navigation adjustments */
+    .site-logo-img { height: 38px; }
+    .logo-title h1 { font-size: 1.05rem; }
+    .logo-title span { font-size: 0.7rem; }
+
     .header-content h2 { font-size: 2rem; }
     .hero-title { font-size: 1.95rem; }
     .admission-hero h2 { font-size: 2.1rem; }

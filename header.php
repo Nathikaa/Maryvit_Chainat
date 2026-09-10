@@ -101,11 +101,11 @@
     <nav class="navbar">
         <div class="container">
             <a href="index.php" class="logo-box">
-                <div class="logo-emblem">M</div>
-                <div class="logo-title">
-                    <h1>โรงเรียนมารีวิทย์ ชัยนาท</h1>
+                    <img src="assets/images/logo.png" alt="โลโก้โรงเรียนมารีวิทย์ ชัยนาท" class="site-logo-img">
+                    <div class="logo-title">
+                    <h1>โรงเรียนมารีวิทย์ชัยนาท</h1>
                     <span>MARYVIT CHAINAT SCHOOL</span>
-                </div>
+                 </div>
             </a>
 
             <div class="mobile-btn" id="mobile-toggle-btn">
