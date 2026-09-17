@@ -1,15 +1,15 @@
 <?php 
-// 1. เชื่อมต่อฐานข้อมูลก่อนส่ง Output ใดๆ
+
 require_once 'admin/config.php';
 
-$pageTitle = "โรงเรียนมารีวิทย์ ชัยนาท | Maryvit Chainat School";
+$pageTitle = "โรงเรียนมารีวิทย์ชัยนาท | Maryvit Chainat School";
 $currentPage = "home";
 
-// 2. ดึง 3 ข่าวล่าสุดจากฐานข้อมูล
+
 $stmt_news = $conn->query("SELECT * FROM news ORDER BY id DESC LIMIT 3");
 $latest_news = $stmt_news->fetchAll();
 
-// ข้อมูลคู่สีและไอคอนตามหมวดหมู่
+
 $cat_names = [
     'general'  => 'ประชาสัมพันธ์',
     'academic' => 'วิชาการ',
@@ -31,11 +31,9 @@ $cat_icons = [
     'pride'    => 'fa-award'
 ];
 
-// 3. โหลด Header ของหน้าเว็บ
+
 include 'header.php'; 
 ?>
-
-<!-- 3. Hero Section (พร้อมภาพพื้นหลังกิจกรรมและ AI) -->
 <section class="hero" id="home">
     <div class="container">
         <div class="hero-left">
@@ -44,13 +42,13 @@ include 'header.php';
             <p class="hero-subtitle">เปิดสอนระดับเตรียมอนุบาล - ประถมศึกษาปีที่ 6 มุ่งพัฒนาผู้เรียนสู่ศักยภาพระดับสากล เสริมทักษะภาษาและเทคโนโลยี AI ควบคู่คุณธรรมและระเบียบวินัย</p>
             <div class="hero-actions">
                 <a href="admissions.php" class="btn-gold"><i class="fa-solid fa-file-signature"></i> สมัครเรียน ปีการศึกษา 2569</a>
-                <a href="tel:0806436135" class="btn-outline-white"><i class="fa-solid fa-phone"></i> โทร. 080-6436135</a>
+                <a href="tel:0806436135" class="btn-outline-white"><i class="fa-solid fa-phone"></i> โทร. 080-643-6135</a>
             </div>
         </div>
     </div>
 </section>
 
-<!-- 4. Quick Links -->
+
 <div class="quick-section">
     <div class="container">
         <div class="quick-grid">

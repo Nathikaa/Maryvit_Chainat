@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo isset($pageTitle) ? $pageTitle : 'โรงเรียนมารีวิทย์ ชัยนาท | Maryvit Chainat School'; ?></title>
+    <title><?php echo isset($pageTitle) ? $pageTitle : 'โรงเรียนมารีวิทย์ชัยนาท | Maryvit Chainat School'; ?></title>
+
+    <link rel="icon" type="image/png" href="assets/images/logo.png">
+    <link rel="shortcut icon" type="image/png" href="assets/images/logo.png">
 
     <!-- Google Fonts: Prompt & Sarabun -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -86,7 +89,7 @@
     <div class="top-bar">
         <div class="container">
             <div class="top-info">
-                <span><i class="fa-solid fa-phone"></i> 056-411-XXX</span>
+                <span><i class="fa-solid fa-phone"></i> 080-643-6135</span>
                 <span><i class="fa-solid fa-envelope"></i> info@maryvit-chainat.ac.th</span>
                 <span><i class="fa-solid fa-location-dot"></i> อำเภอเมืองชัยนาท จังหวัดชัยนาท 17000</span>
             </div>
@@ -129,15 +132,32 @@
                         <i class="fa-solid fa-chevron-down" style="font-size: 0.75rem;"></i>
                     </button>
                     <div class="dropdown-menu">
-                        <a href="#" class="dropdown-item"><i class="fa-solid fa-chalkboard-user"></i> PowerTeacher Pro</a>
-                        <a href="#" class="dropdown-item"><i class="fa-solid fa-id-card-clip"></i> PowerSchool SIS</a>
+                        <a href="https://mvschool.powerschool.com/teachers/pw.html" class="dropdown-item"><i class="fa-solid fa-chalkboard-user"></i> PowerTeacher Pro</a>
+                        <a href="https://mvschool.powerschool.com/students/pw.html" class="dropdown-item"><i class="fa-solid fa-id-card-clip"></i> PowerSchool SIS</a>
                     </div>
                 </div>
 
-                <a href="#" class="theme-btn">
-                    <i class="fa-solid fa-graduation-cap"></i>
-                    <span>ระบบ Schoology</span>
-                </a>
+               <div class="dropdown">
+                    <button class="theme-btn">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                        <span>SCHOOLOGY</span>
+                        <i class="fa-solid fa-chevron-down" style="font-size: 0.75rem;"></i>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="https://app.schoology.com/login" target="_blank" rel="noopener noreferrer" class="dropdown-item" style="font-weight: 700; color: var(--primary-green); border-bottom: 1px solid #f1f5f9;">
+                            <i class="fa-solid fa-arrow-right-to-bracket"></i> เข้าสู่ระบบ Schoology
+                        </a>
+                        <a href="#" class="dropdown-item" onclick="alert('อยู่ระหว่างจัดเตรียมไฟล์คู่มือจากทางส่วนกลาง'); return false;">
+                            <i class="fa-solid fa-book-open-reader"></i> คู่มือสำหรับนักเรียน
+                        </a>
+                        <a href="#" class="dropdown-item" onclick="alert('อยู่ระหว่างจัดเตรียมไฟล์คู่มือจากทางส่วนกลาง'); return false;">
+                            <i class="fa-solid fa-hands-holding-child"></i> คู่มือสำหรับผู้ปกครอง
+                        </a>
+                        <a href="#" class="dropdown-item" onclick="alert('อยู่ระหว่างจัดเตรียมไฟล์คู่มือจากทางส่วนกลาง'); return false;">
+                            <i class="fa-solid fa-chalkboard-user"></i> คู่มือสำหรับครู
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </nav>

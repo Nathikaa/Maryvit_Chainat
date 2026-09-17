@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Back to Top Button & Scroll Progress Indicator
+    
     const backToTopBtn = document.getElementById('backToTopBtn');
     const progressCircle = document.getElementById('scrollProgress');
     const circumference = 2 * Math.PI * 20;
@@ -202,4 +202,27 @@ function searchNews() {
             card.style.display = 'none';
         }
     });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const dropdowns = document.querySelectorAll('.dropdown');
+
+    dropdowns.forEach(drop => {
+        const btn = drop.querySelector('.theme-btn');
+        if (btn) {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                // ปิดอันอื่นก่อนเปิดอันปัจจุบัน
+                dropdowns.forEach(d => {
+                    if (d !== drop) d.classList.remove('active');
+                });
+                drop.classList.toggle('active');
+            });
+        }
+    });
+
+    // คลิกพื้นที่อื่นบนหน้าเว็บเพื่อปิดเมนู
+    document.addEventListener('click', () => {
+        dropdowns.forEach(drop => drop.classList.remove('active'));
+    });
+});
 }
