@@ -13,6 +13,7 @@
     <!-- Font Awesome Icons 6.4.0 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/new_style.css">
     <style>
         :root {
             --primary-green: #0B6623;

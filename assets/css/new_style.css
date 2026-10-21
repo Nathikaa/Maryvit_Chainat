@@ -1,0 +1,544 @@
+
+.tracking-in-contract {
+    animation: tracking-in-contract .8s cubic-bezier(.215, .61, .355, 1) both;
+}
+
+
+
+.fade-in-right{animation:fade-in-right .6s cubic-bezier(.39,.575,.565,1.000) both}
+.scale-in-center{animation:scale-in-center .5s cubic-bezier(.25,.46,.45,.94) both}
+@keyframes scale-in-center{0%{transform:scale(0);opacity:1}100%{transform:scale(1);opacity:1}}
+
+@keyframes fade-in-right{0%{transform:translateX(50px);opacity:0}100%{transform:translateX(0);opacity:1}}
+
+
+@keyframes swing-in-top-bck {
+    0% {
+        transform: rotateX(70deg);
+        transform-origin: top;
+        opacity: 0;
+    }
+
+    100% {
+        transform: rotateX(0deg);
+        transform-origin: top;
+        opacity: 1;
+    }
+}
+
+
+/* ========================================
+   HERO SECTION - MARYVIT CHAINAT SCHOOL
+   สีหลัก: เขียว #0B6623 / เขียวเข้ม #064016 / ทอง #f59e0b
+======================================== */
+
+.test_hero {
+    position: relative;
+    min-height: 550px;
+    overflow: hidden;
+    background: #064016;
+    color: #fff;
+    display: flex;
+    align-items: center;
+}
+
+/* พื้นที่ภาพพื้นหลัง */
+.hero-bg-slider {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.hero-bg-slider .slider-track {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s ease-in-out;
+}
+
+.hero-bg-slider .slider-track img {
+    flex: 0 0 100%;
+    width: 100%;
+    height: 100%;
+    min-height: 600px;
+    object-fit: cover;
+}
+
+/* ชั้นสีเขียวทับภาพ เพื่อให้ข้อความอ่านง่าย */
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(90deg,
+            rgba(6, 64, 22, 0.94) 0%,
+            rgba(6, 64, 22, 0.78) 42%,
+            rgba(11, 102, 35, 0.40) 72%,
+            rgba(6, 64, 22, 0.18) 100%);
+    pointer-events: none;
+}
+
+/* เนื้อหาอยู่หน้าภาพ */
+.test_hero>.container {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* จำกัดความกว้างเนื้อหา */
+.test_hero .hero-left {
+    width: 100%;
+    max-width: 700px;
+    padding: 20px 0;
+}
+
+/* ป้ายข้อความด้านบน */
+.test_hero .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 16px;
+    margin-bottom: 20px;
+
+    color: #fff;
+    background: rgba(11, 102, 35, 0.55);
+    border: 1px solid rgba(245, 158, 11, 0.75);
+    border-radius: 50px;
+
+    font-size: clamp(0.85rem, 1.5vw, 0.95rem);
+    font-weight: 500;
+    line-height: 1.5;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.test_hero .hero-tag i {
+    color: #f59e0b;
+    font-size: 1.1rem;
+}
+
+/* หัวข้อหลัก */
+.test_hero .hero-title {
+    margin: 0 0 20px;
+    color: #fff;
+
+    font-size: clamp(1.8rem, 4vw, 3.2rem);
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: -0.5px;
+    text-shadow: 0 3px 15px rgba(0, 0, 0, 0.25);
+}
+
+/* ชื่อโรงเรียนเน้นสีทอง */
+.test_hero .hero-title span {
+    display: inline-block;
+    color: #fde047;
+}
+
+/* คำอธิบายใต้หัวข้อ */
+.test_hero .hero-subtitle {
+    max-width: 620px;
+    margin: 0 0 28px;
+
+    color: rgba(255, 255, 255, 0.92);
+    font-size: clamp(0.95rem, 1.5vw, 1.05rem);
+    font-weight: 400;
+    line-height: 1.8;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+/* พื้นที่ปุ่ม */
+.test_hero .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 14px;
+}
+
+/* รูปแบบปุ่มร่วม */
+.test_hero .hero-actions a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    min-height: 48px;
+    padding: 12px 22px;
+    border: 2px solid transparent;
+    border-radius: 14px;
+
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1.5;
+    text-decoration: none;
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+/* ปุ่มสมัครเรียน - สีทอง */
+.test_hero .hero-actions .btn-gold {
+    color: #064016;
+    background: #f59e0b;
+    border-color: #f59e0b;
+    box-shadow: 0 5px 16px rgba(245, 158, 11, 0.25);
+}
+
+.test_hero .hero-actions .btn-gold:hover {
+    color: #064016;
+    background: #ffc247;
+    border-color: #ffc247;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 22px rgba(245, 158, 11, 0.35);
+}
+
+/* ปุ่มวิดีโอ - ขอบสีขาว */
+.test_hero .hero-actions .btn-outline-white {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+.test_hero .hero-actions .btn-outline-white:hover {
+    color: #064016;
+    background: #fff;
+    border-color: #fff;
+    transform: translateY(-3px);
+}
+
+/* ปุ่มลูกศรเปลี่ยนภาพ */
+.hero-bg-slider .slider-prev,
+.hero-bg-slider .slider-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 3;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 44px;
+    height: 44px;
+    padding: 0;
+
+    color: #fff;
+    background: rgba(6, 64, 22, 0.65);
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    border-radius: 50%;
+
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.25s ease, border-color 0.25s ease;
+}
+
+.hero-bg-slider .slider-prev {
+    left: 15px;
+}
+
+.hero-bg-slider .slider-next {
+    right: 15px;
+}
+
+.hero-bg-slider .slider-prev:hover,
+.hero-bg-slider .slider-next:hover {
+    color: #064016;
+    background: #f59e0b;
+    border-color: #f59e0b;
+}
+
+/* จุดเลือกภาพ */
+.hero-bg-slider .slider-dots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.hero-bg-slider .slider-dot {
+    width: 10px;
+    height: 10px;
+    padding: 0;
+
+    background: rgba(255, 255, 255, 0.65);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 20px;
+
+    cursor: pointer;
+    transition:
+        width 0.3s ease,
+        background 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.hero-bg-slider .slider-dot.active {
+    width: 26px;
+    background: #f59e0b;
+    border-color: #f59e0b;
+}
+
+/* แสดงกรอบเมื่อใช้แป้นพิมพ์ */
+.test_hero a:focus-visible,
+.hero-bg-slider button:focus-visible {
+    outline: 3px solid #f59e0b;
+    outline-offset: 4px;
+}
+
+.quick-section_home {
+    padding: 40px 0 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.quick-grid_two {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    width: 100%;
+}
+
+/* กล่องข่าวประกาศ */
+.hero-announcement {
+    width: 100%;
+    max-width: 450px;
+    padding: 0;
+    color: #111827;
+}
+
+/* หัวข้อข่าว */
+.hero-announcement .ann-head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+    color: var(--primary-green);
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.hero-announcement .ann-head i {
+    color: var(--primary-green);
+    font-size: 1.6rem;
+}
+
+/* การ์ดประกาศแต่ละรายการ */
+.hero-announcement .ann-list-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    min-height: 85px;
+    margin-bottom: 18px;
+    padding: 25px 25px 14px;
+
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        border-color 0.2s ease;
+}
+
+/* เอฟเฟกต์เมื่อเลื่อนเมาส์เหนือการ์ด */
+.hero-announcement .ann-list-item:hover {
+    transform: translateY(-2px);
+    border-color: #c8dfcc;
+    box-shadow: 0 4px 12px rgba(6, 64, 22, 0.10);
+}
+
+/* ป้ายประเภทประกาศ */
+.hero-announcement .ann-badge {
+    position: absolute;
+    top: -10px;
+    right: 18px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 24px;
+    padding: 5px 11px;
+
+    color: var(--primary-green);
+    background: #f0fff2;
+    border: 1px solid #e0f0e2;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.10);
+
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.4;
+    white-space: nowrap;
+}
+
+/* กล่องข้อความภายในการ์ด */
+.hero-announcement .ann-list-item>div {
+    width: 100%;
+    min-width: 0;
+}
+
+/* หัวข้อประกาศ */
+.hero-announcement .ann-list-item strong {
+    display: block;
+    margin: 0 0 4px;
+
+    color: #111111;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.5;
+
+    overflow-wrap: anywhere;
+}
+
+/* รายละเอียดประกาศ */
+.hero-announcement .ann-list-item p {
+    margin: 0;
+    color: #858585;
+    font-size: 0.78rem;
+    font-weight: 300;
+    line-height: 1.5;
+}
+
+/* ========================================
+   RESPONSIVE - TABLET (Max-width: 1024px)
+======================================== */
+@media (max-width: 1024px) {
+
+    .test_hero,
+    .test_hero>.container {
+        min-height: auto;
+    }
+
+    .hero-bg-slider .slider-track img {
+        min-height: 550px;
+    }
+
+    .quick-section_home {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 25px;
+    }
+
+    .hero-announcement {
+        max-width: 100%;
+    }
+}
+
+/* ========================================
+   RESPONSIVE - MOBILE (Max-width: 576px)
+======================================== */
+@media (max-width: 576px) {
+
+    .test_hero,
+    .test_hero>.container {
+        min-height: auto;
+        padding: 30px 15px;
+    }
+
+    .hero-bg-slider .slider-track img {
+        min-height: 500px;
+    }
+
+    .test_hero .hero-left {
+        padding: 10px 0;
+    }
+
+    .test_hero .hero-tag {
+        padding: 6px 12px;
+        margin-bottom: 15px;
+    }
+
+    .test_hero .hero-title {
+        margin-bottom: 15px;
+        line-height: 1.35;
+    }
+
+    .test_hero .hero-subtitle {
+        margin-bottom: 20px;
+        line-height: 1.6;
+    }
+
+    .test_hero .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+
+    .test_hero .hero-actions a {
+        width: 100%;
+        min-height: 46px;
+        padding: 10px 16px;
+        font-size: 0.9rem;
+    }
+
+    .hero-bg-slider .slider-prev,
+    .hero-bg-slider .slider-next {
+        width: 36px;
+        height: 36px;
+        font-size: 0.85rem;
+    }
+
+    .hero-bg-slider .slider-prev {
+        left: 8px;
+    }
+
+    .hero-bg-slider .slider-next {
+        right: 8px;
+    }
+
+    .quick-grid_two {
+        grid-template-columns: 1fr;
+        /* เปลี่ยนเป็น 1 คอลัมน์บนมือถือจอเล็กเพื่อให้การ์ดไม่เบียดกันเกินไป */
+        gap: 12px;
+    }
+
+    .hero-announcement .ann-head {
+        font-size: 1.3rem;
+        margin-bottom: 12px;
+    }
+
+    .hero-announcement .ann-head i {
+        font-size: 1.4rem;
+    }
+
+    .hero-announcement .ann-list-item {
+        min-height: auto;
+        padding: 18px 14px 12px;
+        margin-bottom: 16px;
+    }
+}
+
+/* ลดการเคลื่อนไหวสำหรับผู้ที่ตั้งค่าระบบไว้ */
+@media (prefers-reduced-motion: reduce) {
+
+    .hero-bg-slider .slider-track,
+    .hero-bg-slider .slider-dot,
+    .test_hero .hero-actions a {
+        transition: none;
+    }
+}
