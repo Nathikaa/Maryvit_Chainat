@@ -114,3 +114,37 @@ document.addEventListener("DOMContentLoaded", () => {
     showImage(0);
     startSlider();
 });
+document.addEventListener("DOMContentLoaded", () => {
+        const animatedElements = document.querySelectorAll(
+            ".tracking-in-contract, .fade-in-right ,.scale-in-center"
+        );
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                const element = entry.target;
+
+                if (entry.isIntersecting) {
+                    // เริ่ม Animation เมื่อเลื่อนเข้ามาเห็น
+                    element.style.animationPlayState = "running";
+                } else {
+                    // หยุด Animation และรีเซ็ตเมื่อเลื่อนออกไป
+                    element.style.animationPlayState = "paused";
+                    element.style.animation = "none";
+
+                    // บังคับให้เบราว์เซอร์รีเซ็ต Animation
+                    void element.offsetHeight;
+
+                    // เตรียม Animation ไว้สำหรับรอบถัดไป
+                    element.style.animation = "";
+                    element.style.animationPlayState = "paused";
+                }
+            });
+        }, {
+            threshold: 0.15
+        });
+
+        animatedElements.forEach((element) => {
+            element.style.animationPlayState = "paused";
+            observer.observe(element);
+        });
+    });

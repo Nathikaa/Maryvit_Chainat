@@ -5,31 +5,10 @@ require_once 'admin/config.php';
 $pageTitle = "ทดสอบหน้าแรก | Maryvit Chainat School";
 $currentPage = "test_home";
 
-// 2. ดึง 3 ข่าวล่าสุดจากฐานข้อมูล
-$stmt_news = $conn->query("SELECT * FROM news ORDER BY id DESC LIMIT 3");
+// 2. ดึง 4 ข่าวล่าสุดจากฐานข้อมูล
+$stmt_news = $conn->query("SELECT * FROM news ORDER BY id DESC LIMIT 4");
 $latest_news = $stmt_news->fetchAll();
 
-// ข้อมูลคู่สีและไอคอนตามหมวดหมู่
-$cat_names = [
-    'general'  => 'ประชาสัมพันธ์',
-    'academic' => 'วิชาการ',
-    'activity' => 'ภาพกิจกรรม',
-    'pride'    => 'ความภาคภูมิใจ'
-];
-
-$cat_gradients = [
-    'general'  => 'linear-gradient(45deg, #0B6623, #15803d)',
-    'academic' => 'linear-gradient(45deg, #b45309, #f59e0b)',
-    'activity' => 'linear-gradient(45deg, #7c3aed, #a855f7)',
-    'pride'    => 'linear-gradient(45deg, #1e3a8a, #3b82f6)'
-];
-
-$cat_icons = [
-    'general'  => 'fa-school',
-    'academic' => 'fa-language',
-    'activity' => 'fa-volleyball',
-    'pride'    => 'fa-award'
-];
 
 // 3. โหลด Header ของหน้าเว็บ
 include 'header.php'; ?>
@@ -143,62 +122,126 @@ include 'header.php'; ?>
 </section>
 
 <!-- 5. News & Announcements (Dynamic จาก Database) -->
-<section class="section-padding" id="news">
+
+<section class="news-masonry-section bg-section" id="news">
     <div class="container">
         <div class="section-header">
             <div class="section-title">
                 <h3>ข่าวประชาสัมพันธ์ & กิจกรรม</h3>
                 <p>ติดตามข่าวสาร ความเคลื่อนไหว และภาพบรรยากาศในโรงเรียน</p>
             </div>
-            <a href="news.php" class="link-view-all">ดูข่าวทั้งหมด <i class="fa-solid fa-arrow-right"></i></a>
-        </div>
 
-        <div class="news-grid">
-            <?php if (count($latest_news) > 0): ?>
-                <?php foreach ($latest_news as $news): ?>
-                    <?php
-                    $catKey = $news['category'] ?? 'general';
-                    $catLabel = $cat_names[$catKey] ?? 'ประชาสัมพันธ์';
-                    $bgGrad = $cat_gradients[$catKey] ?? $cat_gradients['general'];
-                    $iconClass = $cat_icons[$catKey] ?? 'fa-school';
-                    ?>
-                    <div class="news-card swing-in-top-bck ">
-                        <div class="news-banner" style="background: <?php echo $bgGrad; ?>;">
-                            <i class="fa-solid <?php echo $iconClass; ?> fa-3x"></i>
-                            <span class="news-date"><i class="fa-regular fa-clock"></i> <?php echo date('d M Y', strtotime($news['created_at'])); ?></span>
-                        </div>
-                        <div class="news-content">
-                            <span class="news-cat"><?php echo htmlspecialchars($catLabel); ?></span>
-                            <h4 class="news-heading"><?php echo htmlspecialchars($news['title']); ?></h4>
-                            <p class="news-detail"><?php echo htmlspecialchars($news['detail']); ?></p>
-                            <div class="news-meta">
-                                <span><i class="fa-regular fa-eye"></i> <?php echo intval($news['views']); ?> ครั้ง</span>
-                                <a href="news.php" style="color: var(--primary-green);">อ่านต่อ <i class="fa-solid fa-chevron-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                <?php endforeach; ?>
-            <?php else: ?>
-                <!-- ตัวอย่างการ์ดข่าว (กรณีเพิ่งติดตั้งและยังไม่ได้เพิ่มข่าวในหลังบ้าน) -->
-                <div class="news-card">
-                    <div class="news-banner" style="background: linear-gradient(45deg, #0B6623, #15803d);">
-                        <i class="fa-solid fa-school fa-3x"></i>
-                        <span class="news-date"><i class="fa-regular fa-clock"></i> ล่าสุด</span>
-                    </div>
-                    <div class="news-content">
-                        <span class="news-cat">ประชาสัมพันธ์</span>
-                        <h4 class="news-heading">เปิดรับสมัครนักเรียนใหม่ ปีการศึกษา 2569</h4>
-                        <p class="news-detail">เปิดรับสมัครระดับเตรียมอนุบาล ถึง มัธยมศึกษาตอนปลาย พร้อมสิทธิประโยชน์และทุนการศึกษา</p>
-                        <div class="news-meta">
-                            <span>โรงเรียนมารีวิทย์</span>
-                            <a href="admissions.php" style="color: var(--primary-green);">สมัครเรียน <i class="fa-solid fa-chevron-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-            <?php endif; ?>
+            <a href="news.php" class="link-view-all">
+                ดูข่าวทั้งหมด <i class="fa-solid fa-arrow-right"></i>
+            </a>
         </div>
     </div>
+
+    <div class="container">
+        <?php if (!empty($latest_news)): ?>
+
+            <?php $newsGroups = array_chunk($latest_news, 4); ?>
+
+            <?php foreach ($newsGroups as $group): ?>
+                <div class="news-masonry-grid">
+
+                    <?php foreach ($group as $index => $news): ?>
+                        <?php
+                        $catKey = $news['category'] ?? 'general';
+                        $catLabel = $cat_names[$catKey] ?? 'ประชาสัมพันธ์';
+
+                        $title = $news['title'] ?? 'ไม่มีหัวข้อข่าว';
+                        $detail = $news['detail'] ?? '';
+                        $image = trim($news['image_path'] ?? '');
+                        $views = intval($news['views'] ?? 0);
+                        $newsId = intval($news['id'] ?? 0);
+
+                        $cardClass = match ($index) {
+                            0 => 'news-masonry-large-left',
+                            1 => 'news-masonry-small-top',
+                            2 => 'news-masonry-small-bottom',
+                            3 => 'news-masonry-large-right',
+                        };
+
+                        $dateText = !empty($news['created_at'])
+                            ? date('d M Y', strtotime($news['created_at']))
+                            : 'ไม่ระบุวันที่';
+                        ?>
+
+                        <article class="news-masonry-card fade-in-right <?= $cardClass ?>">
+
+                            <!-- ภาพข่าว -->
+                            <?php if ($image !== ''): ?>
+                                <img
+                                    src="<?= htmlspecialchars($image, ENT_QUOTES, 'UTF-8') ?>"
+                                    alt="<?= htmlspecialchars($title, ENT_QUOTES, 'UTF-8') ?>"
+                                    class="news-masonry-image"
+                                    loading="lazy">
+                            <?php else: ?>
+                                <div class="news-masonry-placeholder">
+                                    <i class="fa-regular fa-image"></i>
+                                </div>
+                            <?php endif; ?>
+
+                            <!-- ไล่สีทับภาพ -->
+                            <div class="news-masonry-overlay"></div>
+
+                            <!-- วันที่ข่าว -->
+                            <div class="news-masonry-date">
+                                <i class="fa-regular fa-clock"></i>
+                                <span><?= htmlspecialchars($dateText, ENT_QUOTES, 'UTF-8') ?></span>
+                            </div>
+
+                            <!-- รายละเอียดข่าวทุกการ์ด -->
+                            <div class="news-masonry-content">
+
+                                <span class="news-masonry-category">
+                                    <?= htmlspecialchars($catLabel, ENT_QUOTES, 'UTF-8') ?>
+                                </span>
+
+                                <h4 class="news-masonry-title">
+                                    <?= htmlspecialchars($title, ENT_QUOTES, 'UTF-8') ?>
+                                </h4>
+
+                                <p class="news-masonry-detail">
+                                    <?= htmlspecialchars($detail, ENT_QUOTES, 'UTF-8') ?>
+                                </p>
+
+                                <div class="news-masonry-footer">
+                                    <span class="news-masonry-views">
+                                        <i class="fa-regular fa-eye"></i>
+                                        <?= $views ?> ครั้ง
+                                    </span>
+
+                                    <a
+                                        href="news.php?id=<?= $newsId ?>"
+                                        class="news-masonry-button">
+                                        อ่านเพิ่มเติม
+                                        <i class="fa-solid fa-arrow-right"></i>
+                                    </a>
+                                </div>
+
+                            </div>
+
+                        </article>
+
+                    <?php endforeach; ?>
+
+                </div>
+            <?php endforeach; ?>
+
+        <?php else: ?>
+
+            <div class="news-masonry-empty">
+                <i class="fa-regular fa-newspaper"></i>
+                <p>ยังไม่มีข่าวประชาสัมพันธ์</p>
+            </div>
+
+        <?php endif; ?>
+
+    </div>
 </section>
+
 
 <!-- 6. Curriculum Highlights -->
 <section class="programs-wrap" id="curriculum">
@@ -209,67 +252,80 @@ include 'header.php'; ?>
                 <p>พัฒนาผู้เรียนอย่างรอบด้าน ทั้งด้านภาษา วิทยาศาสตร์ เทคโนโลยี และจิตใจ</p>
             </div>
         </div>
-
-        <div class="program-cards">
-            <div class="curriculum-card">
-                <div class="curriculum-icon"><i class="fa-solid fa-shapes"></i></div>
-                <h4>แผนกปฐมวัย (อนุบาล)</h4>
-                <p>ส่งเสริมพัฒนาการทั้ง 4 ด้าน ผ่านกิจกรรม Play-based Learning และปูพื้นฐานภาษาอังกฤษเบื้องต้น</p>
-            </div>
-            <div class="curriculum-card">
-                <div class="curriculum-icon"><i class="fa-solid fa-book-open"></i></div>
-                <h4>แผนกประถมศึกษา</h4>
-                <p>สร้างพื้นฐานวิชาการที่แข็งแกร่ง เน้นการคิดวิเคราะห์ และทักษะการใช้ภาษาเพื่อการสื่อสาร</p>
-            </div>
-            <div class="curriculum-card">
-                <div class="curriculum-icon"><i class="fa-solid fa-flask"></i></div>
-                <h4>แผนกมัธยมศึกษา</h4>
-                <p>เตรียมนักเรียนสู่มหาวิทยาลัยชั้นนำ เน้น IEP (Intensive English) และแผนการเรียนวิทย์-คณิต/ภาษา</p>
-            </div>
-            <div class="curriculum-card">
-                <div class="curriculum-icon"><i class="fa-solid fa-globe"></i></div>
-                <h4>ภาษาต่างประเทศ</h4>
-                <p>จัดการเรียนการสอนภาษาอังกฤษและภาษาจีน โดยคุณครูชาวต่างชาติเจ้าของภาษา (Native Speakers)</p>
-            </div>
-        </div>
     </div>
+
+    <div class="programs_f container" aria-label="ระดับชั้นและหลักสูตรการศึกษา">
+
+        <!-- ตราโรงเรียนตรงกลาง -->
+        <div class="hub ">
+            <img src="assets/images/logo.png" alt="ตราโรงเรียน Maryvit Chainat School">
+        </div>
+
+        <!-- แผนกปฐมวัย (บนซ้าย) -->
+        <article class="program program--tl">
+            <div class="program__text">
+                <h2>แผนกปฐมวัย</h2>
+                <p>
+                    ส่งเสริมพัฒนาการทั้ง 4 ด้าน <br>
+                    ผ่านกิจกรรม Play-based Learning <br>
+                    และปูพื้นฐานภาษาอังกฤษเบื้องต้น
+                </p>
+            </div>
+            <figure class="program__image scale-in-center ">
+                <!-- ใส่รูปจริงแทน: <img src="assets/kindergarten.jpg" alt="แผนกปฐมวัย"> -->
+                <img src="assets/images/image4.jpg" alt="แผนกปฐมวัย">
+            </figure>
+        </article>
+
+        <!-- แผนกประถมศึกษา (บนขวา) -->
+        <article class="program program--tr">
+            <figure class="program__image scale-in-center">
+                <img src="assets/images/image5.jpg" alt="แผนกประถมศึกษา">
+            </figure>
+            <div class="program__text">
+                <h2>แผนกประถมศึกษา</h2>
+                <p>
+                    สร้างพื้นฐานวิชาการที่แข็งแกร่ง <br>
+                    เน้นการคิดวิเคราะห์ <br>
+                    และทักษะการใช้ภาษาเพื่อการสื่อสาร
+                </p>
+            </div>
+        </article>
+
+        <!-- แผนกมัธยมศึกษา (ล่างซ้าย) -->
+        <article class="program program--bl">
+            <div class="program__text">
+                <h2>แผนกมัธยมศึกษา</h2>
+                <p>
+                    เตรียมนักเรียนสู่มหาวิทยาลัยชั้นนำ <br>
+                    เน้น IEP (Intensive English) <br>
+                    และแผนการเรียนวิทย์-คณิต/ภาษา
+                </p>
+            </div>
+            <figure class="program__image scale-in-center">
+                <img src="assets/images/image6.jpg" alt="แผนกมัธยมศึกษา">
+            </figure>
+        </article>
+
+        <!-- ภาษาต่างประเทศ (ล่างขวา) -->
+        <article class="program program--br">
+            <figure class="program__image scale-in-center">
+                <img src="assets/images/image7.png" alt="ภาษาต่างประเทศ">
+            </figure>
+            <div class="program__text">
+                <h2>ภาษาต่างประเทศ</h2>
+                <p>
+                    จัดการเรียนการสอนภาษาอังกฤษและ <br>
+                    ภาษาจีน <br>
+                    โดยคุณครูชาวต่างชาติเจ้าของภาษา <br>
+                    (Native Speakers)
+                </p>
+            </div>
+        </article>
+    </div>
+
 </section>
 <script src="assets/js/main.js"></script>
 <script src="assets/js/new_home.js"></script>
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const animatedElements = document.querySelectorAll(
-            ".tracking-in-contract, .fade-in-right ,.scale-in-center"
-        );
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                const element = entry.target;
-
-                if (entry.isIntersecting) {
-                    // เริ่ม Animation เมื่อเลื่อนเข้ามาเห็น
-                    element.style.animationPlayState = "running";
-                } else {
-                    // หยุด Animation และรีเซ็ตเมื่อเลื่อนออกไป
-                    element.style.animationPlayState = "paused";
-                    element.style.animation = "none";
-
-                    // บังคับให้เบราว์เซอร์รีเซ็ต Animation
-                    void element.offsetHeight;
-
-                    // เตรียม Animation ไว้สำหรับรอบถัดไป
-                    element.style.animation = "";
-                    element.style.animationPlayState = "paused";
-                }
-            });
-        }, {
-            threshold: 0.15
-        });
-
-        animatedElements.forEach((element) => {
-            element.style.animationPlayState = "paused";
-            observer.observe(element);
-        });
-    });
-</script>
 <?php include 'footer.php'; ?>
