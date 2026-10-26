@@ -95,27 +95,27 @@ include 'header.php'; ?>
                     <i class="fa-solid fa-bullhorn"></i>
                     <span>ข่าวประกาศด่วน</span>
                 </div>
-                <div class="ann-list-item fade-in-right">
+                <a href="#" class="ann-list-item fade-in-right">
                     <span class="ann-badge">รับสมัคร</span>
                     <div>
                         <strong>เปิดรับสมัครนักเรียนใหม่ ปีการศึกษา 2569</strong>
                         <p style="font-size: 16px; color: #6b7280;">ระดับปฐมวัย - มัธยมศึกษาตอนปลาย</p>
                     </div>
-                </div>
-                <div class="ann-list-item fade-in-right">
+                </a>
+                <a href="#" class="ann-list-item fade-in-right">
                     <span class="ann-badge">กำหนดการ</span>
                     <div>
                         <strong>ปฐมนิเทศผู้ปกครองและนักเรียนใหม่</strong>
                         <p style="font-size: 16px; color: #6b7280;">ณ หอประชุมใหญ่โรงเรียนมารีวิทย์ ชัยนาท</p>
                     </div>
-                </div>
-                <div class="ann-list-item fade-in-right">
+                </a>
+                <a href="#" class="ann-list-item fade-in-right">
                     <span class="ann-badge">ผลงาน</span>
                     <div>
                         <strong>ยินดีกับนักเรียนที่คว้ารางวัลโอลิมปิกวิชาการ</strong>
                         <p style="font-size: 16px; color: #6b7280;">การแข่งขันคณิตศาสตร์และวิทยาศาสตร์ระดับภาค</p>
                     </div>
-                </div>
+                </a>
             </div>
         </div>
     </div>
@@ -123,7 +123,7 @@ include 'header.php'; ?>
 
 <!-- 5. News & Announcements (Dynamic จาก Database) -->
 
-<section class="news-masonry-section bg-section" id="news">
+<section class="news-masonry-section bg-section" id="news" style="padding: 30px 0;">
     <div class="container">
         <div class="section-header">
             <div class="section-title">
