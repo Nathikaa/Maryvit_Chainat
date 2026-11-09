@@ -201,5 +201,4 @@ include 'header.php';
     </div>
 </section>
 
-<script src="assets/js/main.js"></script>
-<?php include 'footer.php'; ?>
+<?php include 'footer.php'; ?>  

@@ -5,7 +5,6 @@
 ========================================================== */
 
 :root{--gray:#5B5B5B;--amber:#EC9E00;--petal:#D9D9D9;--icon:#848484;--u:min(1px,calc(100vw / 1558))}
-
 /* ---------- กริดหลัก ---------- */
 .news-section-full_container{width:100%;max-width:none;margin:0;padding:0 4%;box-sizing:border-box}
 .programs_f{position:relative;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr) minmax(40px,.08fr) minmax(0,1fr) minmax(0,1.1fr);grid-template-rows:repeat(2,minmax(280px,1fr));row-gap:clamp(16px,2vw,30px);width:100%;max-width:1558px;margin:40px auto 0;box-sizing:border-box}

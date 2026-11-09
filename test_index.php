@@ -325,7 +325,6 @@ include 'header.php'; ?>
     </div>
 
 </section>
-<script src="assets/js/main.js"></script>
 <script src="assets/js/new_home.js"></script>
 
 <?php include 'footer.php'; ?>
